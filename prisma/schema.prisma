@@ -1,0 +1,256 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/prisma-client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  email     String?  @unique
+  password  String? // bcrypt hash
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CarouselSlide {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  subtitle    String
+  description String
+  image       String
+  ctaText     String
+  ctaLink     String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Single source of truth for therapy offerings (replaces the old law-firm
+// Service/Sector duplication — Sector has been removed entirely).
+model Service {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  title            String
+  slug             String   @unique
+  shortDescription String?
+  description      String // rich HTML
+  durationMinutes  Int?
+  priceLabel       String? // display text only, e.g. "₹1,800 / 50 min" — no payment processing
+  modes            String[] // IN_PERSON | ONLINE | PHONE
+  image            String?
+  icon             String? // lucide-react icon name
+  order            Int      @default(0)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactInfo {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  address      String
+  phone        String
+  email        String
+  workingHours String?
+  mapEmbedUrl  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Lead-tracking / MIS for contact-form enquiries.
+model Enquiry {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  email      String
+  phone      String?
+  subject    String
+  message    String
+  source     String   @default("contact_form")
+  status     String   @default("NEW") // NEW, CONTACTED, QUALIFIED, CONVERTED, ARCHIVED
+  adminNotes String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Review {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  author     String
+  content    String
+  rating     Int      @default(5)
+  isApproved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// Appointment booking is currently dormant (hidden from nav, kept in code so it
+// can be re-enabled later without a rebuild). Left intentionally unreworked.
+model Appointment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String
+  date      DateTime
+  time      String
+  service   String
+  message   String?
+  status    String   @default("PENDING") // PENDING, ACCEPTED, REJECTED, BLOCKED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Content {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  subtitle        String?
+  description     String
+  backgroundImage String
+  ctaText         String?
+  ctaLink         String?
+  textColor       String   @default("white") // white, black, custom
+  overlayOpacity  Float    @default(0.5) // 0.0 to 1.0 for background overlay
+  order           Int      @default(0)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model AboutSection {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  subtitle  String?
+  content   String
+  image     String
+  layout    String   @default("NORMAL") // NORMAL (image left), MIRRORED (image right)
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LegalPage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug      String   @unique // 'privacy-policy', 'terms-and-conditions', 'cookie-policy'
+  title     String
+  content   String // Rich text content (HTML)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Singleton profile for the therapist — feeds the home intro, About page,
+// footer, and JSON-LD structured data.
+model TherapistProfile {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  fullName         String
+  title            String?
+  photo            String?
+  shortBio         String?
+  qualifications   String[]
+  specialisations  String[]
+  languages        String[]
+  approach         String? // rich HTML
+  yearsExperience  Int?
+  registrationNo   String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+// Singleton site-wide settings — makes SEO fields CMS-editable.
+model SiteSettings {
+  id                   String   @id @default(auto()) @map("_id") @db.ObjectId
+  siteName             String   @default("Manaswellness")
+  tagline              String?
+  metaDescription      String?
+  ogImage              String?
+  crisisNotice         String?
+  cookieConsentEnabled Boolean  @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model Event {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String        @unique
+  description String // rich HTML
+  startDate   DateTime
+  endDate     DateTime?
+  location    String?
+  bannerImage String?
+  isActive    Boolean       @default(true)
+  order       Int           @default(0)
+  images      GalleryImage[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  eventId   String   @db.ObjectId
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  imageUrl  String
+  caption   String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// Flexible, admin-built questionnaire engine. The real psychology
+// questionnaire content is supplied by the client later and entered through
+// this builder with no code changes needed.
+model Survey {
+  id          String           @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String           @unique
+  description String?
+  isActive    Boolean          @default(true)
+  questions   SurveyQuestion[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model SurveyQuestion {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  surveyId String   @db.ObjectId
+  survey   Survey   @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  order    Int      @default(0)
+  type     String // TEXT | SINGLE_CHOICE | MULTI_CHOICE | SCALE
+  label    String
+  options  String[] // used by SINGLE_CHOICE / MULTI_CHOICE / SCALE
+  required Boolean  @default(false)
+}
+
+model SurveyResponse {
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  surveyId        String         @db.ObjectId
+  respondentName  String?
+  respondentEmail String?
+  answers         SurveyAnswer[]
+  submittedAt     DateTime       @default(now())
+}
+
+model SurveyAnswer {
+  id         String         @id @default(auto()) @map("_id") @db.ObjectId
+  responseId String         @db.ObjectId
+  response   SurveyResponse @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  questionId String         @db.ObjectId
+  value      String // multi-choice/scale values stored as a JSON-stringified array when needed
+}
+
+model BlogPost {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String    @unique
+  excerpt     String?
+  content     String // rich HTML
+  coverImage  String?
+  tags        String[]
+  authorName  String?
+  status      String    @default("DRAFT") // DRAFT | PUBLISHED
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
