@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { requireAdmin, UnauthorizedError } from "@/lib/auth-guard";
+import { requireAdmin } from "@/lib/auth-guard";
+import { handleApiError } from "@/lib/api-error";
 
 export async function PUT(
   request: Request,
@@ -27,14 +28,7 @@ export async function PUT(
 
     return NextResponse.json({ success: true, result: section });
   } catch (error) {
-    if (error instanceof UnauthorizedError) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-    console.error('Database error:', error);
-    return NextResponse.json(
-      { error: "Database error" },
-      { status: 500 }
-    );
+    return handleApiError(error, "Failed to update about section");
   }
 }
 
@@ -51,13 +45,6 @@ export async function DELETE(
 
     return NextResponse.json({ success: true, result });
   } catch (error) {
-    if (error instanceof UnauthorizedError) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-    console.error('Database error:', error);
-    return NextResponse.json(
-      { error: "Database error" },
-      { status: 500 }
-    );
+    return handleApiError(error, "Failed to delete about section");
   }
 }

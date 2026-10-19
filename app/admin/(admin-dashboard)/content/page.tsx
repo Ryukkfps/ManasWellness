@@ -501,7 +501,7 @@ export default function AdminContent() {
                     >
                       <option value="white">White</option>
                       <option value="black">Black</option>
-                      <option value="#4F6B5A">Brand Sage</option>
+                      <option value="#5B3570">Brand Purple</option>
                     </select>
                   </div>
                   

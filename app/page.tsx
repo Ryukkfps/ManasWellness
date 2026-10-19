@@ -89,7 +89,10 @@ export default async function Home() {
               <H2>{therapist.fullName}</H2>
               {therapist.title && <p className="text-sage-700 font-medium">{therapist.title}</p>}
               {therapist.shortBio && (
-                <p className="text-ink-muted leading-relaxed">{therapist.shortBio}</p>
+                <div
+                  className="rich-text-content text-ink-muted"
+                  dangerouslySetInnerHTML={{ __html: therapist.shortBio }}
+                />
               )}
               <div>
                 <ButtonLink href="/about" variant="secondary">Learn more about me</ButtonLink>

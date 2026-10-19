@@ -30,69 +30,13 @@ export default async function AboutPage() {
       <Section tone="sand" className="py-16 md:py-20">
         <Container className="text-center max-w-2xl">
           <Eyebrow>About</Eyebrow>
-          <H1 className="mt-3">
-            {therapist ? `Meet ${therapist.fullName}` : 'About Manaswellness'}
-          </H1>
-          {therapist?.title && <p className="text-sage-700 font-medium mt-3">{therapist.title}</p>}
+          <H1 className="mt-3">About Manaswellness</H1>
         </Container>
       </Section>
 
-      {therapist && (
-        <Section tone="cream">
-          <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="rounded-3xl overflow-hidden aspect-4/5 max-w-md mx-auto w-full">
-              {therapist.photo && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={therapist.photo} alt={therapist.fullName} className="w-full h-full object-cover" />
-              )}
-            </div>
-            <div className="flex flex-col gap-6">
-              {therapist.shortBio && (
-                <p className="text-ink leading-relaxed">{therapist.shortBio}</p>
-              )}
-
-              {therapist.qualifications?.length > 0 && (
-                <div>
-                  <h3 className="font-serif text-lg text-ink mb-2">Qualifications</h3>
-                  <ul className="text-sm text-ink-muted space-y-1 list-disc list-inside">
-                    {therapist.qualifications.map((q: string) => <li key={q}>{q}</li>)}
-                  </ul>
-                </div>
-              )}
-
-              {therapist.specialisations?.length > 0 && (
-                <div>
-                  <h3 className="font-serif text-lg text-ink mb-2">Areas of focus</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {therapist.specialisations.map((s: string) => (
-                      <span key={s} className="text-xs font-medium bg-sage-100 text-sage-700 rounded-full px-3 py-1.5">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {therapist.languages?.length > 0 && (
-                <p className="text-sm text-ink-muted">
-                  <span className="font-medium text-ink">Languages: </span>
-                  {therapist.languages.join(', ')}
-                </p>
-              )}
-
-              {therapist.approach && (
-                <div
-                  className="rich-text-content text-ink-muted"
-                  dangerouslySetInnerHTML={{ __html: therapist.approach }}
-                />
-              )}
-            </div>
-          </Container>
-        </Section>
-      )}
-
+      {/* About Manaswellness (org-level story), image beside */}
       {sections.map((section, index) => (
-        <Section key={section.id} tone={index % 2 === 0 ? 'sand' : 'cream'}>
+        <Section key={section.id} tone={index % 2 === 0 ? 'cream' : 'sand'}>
           <Container
             className={`flex flex-col ${
               section.layout === 'MIRRORED' ? 'md:flex-row-reverse' : 'md:flex-row'
@@ -105,13 +49,86 @@ export default async function AboutPage() {
             <div className="w-full md:w-1/2 flex flex-col gap-4">
               {section.subtitle && <Eyebrow>{section.subtitle}</Eyebrow>}
               <h2 className="font-serif text-3xl text-ink">{section.title}</h2>
-              <div className="text-ink-muted leading-relaxed space-y-4">
-                {section.content.split('\n').map((para: string, i: number) => para.trim() && <p key={i}>{para}</p>)}
-              </div>
+              <div
+                className="rich-text-content text-ink-muted"
+                dangerouslySetInnerHTML={{ __html: section.content }}
+              />
             </div>
           </Container>
         </Section>
       ))}
+
+      {/* Meet Your Therapist — qualifications, experience, approach */}
+      {therapist && (
+        <Section tone="sand">
+          <Container>
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <Eyebrow>Your Therapist</Eyebrow>
+              <h2 className="font-serif text-3xl text-ink mt-3">Meet Your Therapist</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <div className="rounded-3xl overflow-hidden aspect-4/5 max-w-md mx-auto w-full">
+                {therapist.photo && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={therapist.photo} alt={therapist.fullName} className="w-full h-full object-cover" />
+                )}
+              </div>
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="font-serif text-2xl text-ink">{therapist.fullName}</h3>
+                  {therapist.title && <p className="text-sage-700 font-medium mt-1">{therapist.title}</p>}
+                </div>
+
+                {therapist.shortBio && (
+                  <div
+                    className="rich-text-content text-ink"
+                    dangerouslySetInnerHTML={{ __html: therapist.shortBio }}
+                  />
+                )}
+
+                {therapist.qualifications?.length > 0 && (
+                  <div>
+                    <h4 className="font-serif text-lg text-ink mb-2">Qualifications</h4>
+                    <ul className="text-sm text-ink-muted space-y-1 list-disc list-inside">
+                      {therapist.qualifications.map((q: string) => <li key={q}>{q}</li>)}
+                    </ul>
+                  </div>
+                )}
+
+                {therapist.specialisations?.length > 0 && (
+                  <div>
+                    <h4 className="font-serif text-lg text-ink mb-2">Areas of focus</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {therapist.specialisations.map((s: string) => (
+                        <span key={s} className="text-xs font-medium bg-sage-100 text-sage-700 rounded-full px-3 py-1.5">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {therapist.languages?.length > 0 && (
+                  <p className="text-sm text-ink-muted">
+                    <span className="font-medium text-ink">Languages: </span>
+                    {therapist.languages.join(', ')}
+                  </p>
+                )}
+
+                {therapist.approach && (
+                  <div>
+                    <h4 className="font-serif text-lg text-ink mb-2">Therapeutic Approach</h4>
+                    <div
+                      className="rich-text-content text-ink-muted"
+                      dangerouslySetInnerHTML={{ __html: therapist.approach }}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </Container>
+        </Section>
+      )}
 
       <Section tone="sage">
         <Container className="text-center max-w-xl">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 interface AboutSection {
   id: string;
@@ -233,13 +234,10 @@ export default function AboutManagement() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Content (Use new lines for paragraphs)</label>
-                    <textarea
-                      required
-                      rows={6}
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                    <RichTextEditor
                       value={formData.content}
-                      onChange={(e) => setFormData({...formData, content: e.target.value})}
-                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
+                      onChange={(value) => setFormData({ ...formData, content: value })}
                     />
                   </div>
 

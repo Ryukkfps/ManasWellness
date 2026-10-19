@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
-/* "Calm Grove" design system — see the design review artifact for the
-   rationale. Replaces the old navy/serif BioLaw Solutions theme. */
+/* Beige / purple / gold palette, calibrated to the Manas Wellness logo
+   (deep aubergine purple + antique gold mandala mark on dark purple).
+   Token names (sage-*, cream, sand, clay*) are kept as-is across the
+   codebase — only the hex values changed here — so every component that
+   already uses these tokens re-themes for free. */
 :root {
-  --color-sage-700: #4f6b5a;
-  --color-sage-800: #3e5547;
-  --color-sage-500: #7f9c88;
-  --color-sage-100: #e6ede6;
-  --color-cream: #faf7f2;
-  --color-sand: #efe6da;
-  --color-clay: #c98b6b;
-  --color-clay-700: #a86a4c;
-  --color-mist: #dce6ec;
-  --color-ink: #2b2f2c;
-  --color-ink-muted: #5e655f;
-  --color-line: #e3ddd3;
+  --color-sage-700: #5b3570; /* primary — rich plum purple, from the logo */
+  --color-sage-800: ##280241; /* hover / dark surfaces — the logo's deep aubergine bg */
+  --color-sage-500: #8e6aa8; /* icons/borders — lighter purple */
+  --color-sage-100: #ede3f2; /* tinted surfaces */
+  --color-cream: #f3ead9; /* base background, warm beige */
+  --color-sand: #e9dcc5; /* alt-section background, deeper beige */
+  --color-clay: #c9a464; /* antique gold accent, matches the logo mark */
+  --color-clay-700: #a9823f; /* darker gold for text */
+  --color-mist: #e3ddf0; /* soft lavender info surfaces */
+  --color-ink: #332b22; /* warm dark brown-black body text */
+  --color-ink-muted: #6b6054; /* warm muted secondary text */
+  --color-line: #ddd0bc; /* warm beige dividers */
 
   --background: var(--color-cream);
   --foreground: var(--color-ink);

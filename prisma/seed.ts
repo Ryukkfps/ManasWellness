@@ -59,7 +59,7 @@ async function main() {
       title: "Counselling Psychologist (placeholder — client to confirm)",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
       shortBio:
-        "Dr. Ananya Rao is a counselling psychologist with experience supporting individuals and couples through anxiety, stress, relationship difficulties, and life transitions. Placeholder bio — to be replaced with the client's actual content.",
+        "<p>Dr. Ananya Rao is a counselling psychologist with experience supporting individuals and couples through anxiety, stress, relationship difficulties, and life transitions. Placeholder bio — to be replaced with the client's actual content.</p>",
       qualifications: ["M.Phil Clinical Psychology (placeholder)", "RCI Registered (placeholder)"],
       specialisations: ["Anxiety & Stress", "Relationships & Couples", "Grief & Life Transitions", "Self-Esteem"],
       languages: ["English", "Hindi"],
@@ -228,29 +228,18 @@ async function main() {
     await prisma.service.create({ data: service });
   }
 
-  // --- About sections ---
+  // --- About sections (org-level "About Manaswellness" story — kept
+  // separate from the therapist's personal bio, which lives on
+  // TherapistProfile and renders in its own "Meet Your Therapist" section) ---
   await prisma.aboutSection.create({
     data: {
-      title: "Meet Dr. Ananya Rao",
-      subtitle: "ABOUT YOUR THERAPIST",
+      title: "About Manaswellness",
+      subtitle: "OUR STORY",
       content:
-        "Placeholder biography content. Dr. Ananya Rao has spent over eight years supporting individuals and couples through life's challenges, with a warm and collaborative approach.\n\nThis content will be replaced with the client's actual bio.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=1000&q=80",
+        "<p>Placeholder content introducing Manaswellness as a practice: what it offers, who it serves, and why it exists.</p><p>This content will be replaced with the client's actual practice description.</p>",
+      image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1000&q=80",
       layout: "NORMAL",
       order: 1,
-      isActive: true,
-    },
-  });
-
-  await prisma.aboutSection.create({
-    data: {
-      title: "Our Approach",
-      subtitle: "HOW WE WORK TOGETHER",
-      content:
-        "Placeholder content describing the therapeutic philosophy: client-centred, evidence-informed, and paced to each person's comfort.",
-      image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1000&q=80",
-      layout: "MIRRORED",
-      order: 2,
       isActive: true,
     },
   });

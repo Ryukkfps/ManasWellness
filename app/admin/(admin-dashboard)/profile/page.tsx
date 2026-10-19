@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Field, Input, Textarea } from '@/components/ui/Field';
+import { Field, Input } from '@/components/ui/Field';
 import { Button } from '@/components/ui/Button';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 interface Profile {
   fullName: string;
@@ -141,7 +142,7 @@ export default function TherapistProfilePage() {
           </Field>
 
           <Field label="Short Bio" htmlFor="shortBio">
-            <Textarea id="shortBio" rows={4} value={form.shortBio} onChange={(e) => setForm({ ...form, shortBio: e.target.value })} />
+            <RichTextEditor value={form.shortBio} onChange={(value) => setForm({ ...form, shortBio: value })} />
           </Field>
 
           <Field label="Qualifications" htmlFor="qualifications" hint="Comma-separated">
@@ -156,8 +157,8 @@ export default function TherapistProfilePage() {
             <Input id="languages" value={listToText(form.languages)} onChange={(e) => setForm({ ...form, languages: textToList(e.target.value) })} />
           </Field>
 
-          <Field label="Approach (HTML)" htmlFor="approach">
-            <Textarea id="approach" rows={4} value={form.approach} onChange={(e) => setForm({ ...form, approach: e.target.value })} />
+          <Field label="Therapeutic Approach" htmlFor="approach">
+            <RichTextEditor value={form.approach} onChange={(value) => setForm({ ...form, approach: value })} />
           </Field>
 
           <div className="grid grid-cols-2 gap-4">
