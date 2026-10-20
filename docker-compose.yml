@@ -27,9 +27,13 @@ services:
       - mongo-data:/data/db
     restart: unless-stopped
     healthcheck:
+      # Must initiate with an explicit host — a bare rs.initiate() registers
+      # the member under the container's own hostname (its container ID),
+      # which other containers can't resolve, leaving the set stuck with no
+      # reachable primary.
       test: >
         mongosh --quiet --eval
-        "try { rs.status().ok } catch (e) { rs.initiate().ok }"
+        "try { rs.status().ok } catch (e) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo:27017'}]}).ok }"
       interval: 5s
       timeout: 5s
       retries: 10
