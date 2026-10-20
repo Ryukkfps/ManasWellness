@@ -14,6 +14,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate
+# auth.config.ts requires AUTH_SECRET to be set whenever NODE_ENV=production,
+# which `next build` also sets during static page-data collection. This is a
+# build-time-only placeholder so that check passes — it is never baked into
+# a route response, and the real secret is injected at container runtime via
+# docker-compose's env_file, overriding this value.
+ENV AUTH_SECRET="build-time-placeholder-overridden-at-runtime"
 RUN npx next build
 
 # ---- runner: minimal production image ----
