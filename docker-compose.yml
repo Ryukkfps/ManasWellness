@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+    depends_on:
+      - mongo
+
+  # Remove this service (and the app's `depends_on`) if DATABASE_URL in .env
+  # already points at a managed MongoDB (e.g. Atlas) instead of a local one.
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  uploads:
+  mongo-data:

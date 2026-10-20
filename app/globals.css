@@ -85,7 +85,7 @@ html {
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 1.4s ease-out forwards;
 }
 
 .delay-100 {
@@ -98,6 +98,21 @@ html {
 
 .delay-300 {
   animation-delay: 0.3s;
+}
+
+@keyframes delayedShow {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loader only becomes visible after 80ms, so a route that resolves faster
+   than that (typical on a fast DB/network) never flashes it at all — but a
+   real wait (dev recompile, slower DB) still shows it instead of leaving a
+   blank gap. */
+.loader-delayed {
+  opacity: 0;
+  animation: delayedShow 0.15s ease-out 0.08s forwards;
 }
 
 .reveal {
