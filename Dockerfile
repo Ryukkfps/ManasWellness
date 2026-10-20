@@ -1,6 +1,12 @@
 # syntax=docker/dockerfile:1
 
 FROM node:20-slim AS base
+# node:20-slim has libssl but not the openssl CLI Prisma's engine uses to
+# detect which binary variant to run — without it Prisma silently falls back
+# to a guess (openssl-1.1.x) that doesn't match binaryTargets in
+# schema.prisma (debian-openssl-3.0.x) and the engine crashes with no
+# useful error message.
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # ---- deps: install node_modules (separate layer, cached) ----
 FROM base AS deps
