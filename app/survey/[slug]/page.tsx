@@ -29,7 +29,7 @@ export default async function SurveyPage({ params }: { params: Promise<{ slug: s
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="max-w-2xl text-center">
           <Eyebrow>Questionnaire</Eyebrow>
           <H1 className="mt-3">{survey.title}</H1>

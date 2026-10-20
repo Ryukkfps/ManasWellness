@@ -7,9 +7,9 @@
    already uses these tokens re-themes for free. */
 :root {
   --color-sage-700: #5b3570; /* primary — rich plum purple, from the logo */
-  --color-sage-800: ##280241; /* hover / dark surfaces — the logo's deep aubergine bg */
+  --color-sage-800: #2f1240; /* hover / dark surfaces — the logo's deep aubergine bg */
   --color-sage-500: #8e6aa8; /* icons/borders — lighter purple */
-  --color-sage-100: #ede3f2; /* tinted surfaces */
+  --color-sage-100: #e2cfec; /* tinted surfaces — visibly purple, not washed out */
   --color-cream: #f3ead9; /* base background, warm beige */
   --color-sand: #e9dcc5; /* alt-section background, deeper beige */
   --color-clay: #c9a464; /* antique gold accent, matches the logo mark */
@@ -21,6 +21,13 @@
 
   --background: var(--color-cream);
   --foreground: var(--color-ink);
+
+  /* Default font pair. Same indirection as the colors above: the admin
+     Appearance page overrides these two lines at :root (see app/layout.tsx)
+     to point at a different curated pair's next/font variables, and
+     @theme inline below picks up the change without a rebuild. */
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-plus-jakarta);
 }
 
 @theme inline {
@@ -38,8 +45,8 @@
   --color-ink: var(--color-ink);
   --color-ink-muted: var(--color-ink-muted);
   --color-line: var(--color-line);
-  --font-sans: var(--font-plus-jakarta);
-  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 }
 
 /* No dark-mode variant: the design is built around cream/sage surfaces and
@@ -48,7 +55,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta), ui-sans-serif, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, sans-serif;
 }
 
 html {
@@ -122,7 +129,7 @@ html {
 
 /* Rich Text Content Styling */
 .rich-text-content h1 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif), serif;
   font-size: 2.25rem;
   font-weight: 500;
   margin-top: 2rem;
@@ -131,7 +138,7 @@ html {
 }
 
 .rich-text-content h2 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif), serif;
   font-size: 1.875rem;
   font-weight: 500;
   margin-top: 1.75rem;
@@ -140,7 +147,7 @@ html {
 }
 
 .rich-text-content h3 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif), serif;
   font-size: 1.5rem;
   font-weight: 500;
   margin-top: 1.5rem;

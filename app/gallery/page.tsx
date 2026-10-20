@@ -28,7 +28,7 @@ export default async function GalleryPage() {
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="text-center max-w-2xl">
           <Eyebrow>Gallery</Eyebrow>
           <H1 className="mt-3">Event highlights</H1>

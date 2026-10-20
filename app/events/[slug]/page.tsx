@@ -29,7 +29,7 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="max-w-3xl">
           <Eyebrow>Event</Eyebrow>
           <H1 className="mt-3">{event.title}</H1>

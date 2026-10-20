@@ -27,7 +27,7 @@ export default async function BlogPage() {
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="text-center max-w-2xl">
           <Eyebrow>Blog</Eyebrow>
           <H1 className="mt-3">Notes on mental wellness</H1>

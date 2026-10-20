@@ -38,7 +38,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="max-w-3xl">
           <Eyebrow>Service</Eyebrow>
           <div className="flex items-center gap-4 mt-3">

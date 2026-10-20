@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="max-w-3xl">
           <Eyebrow>Blog</Eyebrow>
           <H1 className="mt-3">{post.title}</H1>

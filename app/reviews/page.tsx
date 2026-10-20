@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ReviewsPage() {
   return (
     <div>
-      <Section tone="sand" className="py-16 md:py-20">
+      <Section tone="sage" className="py-16 md:py-20">
         <Container className="text-center max-w-2xl">
           <Eyebrow>Testimonials</Eyebrow>
           <H1 className="mt-3">What clients say</H1>

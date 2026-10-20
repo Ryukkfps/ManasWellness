@@ -123,7 +123,7 @@ model AboutSection {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   subtitle  String?
-  content   String
+  content   String // rich HTML
   image     String
   layout    String   @default("NORMAL") // NORMAL (image left), MIRRORED (image right)
   order     Int      @default(0)
@@ -148,7 +148,7 @@ model TherapistProfile {
   fullName        String
   title           String?
   photo           String?
-  shortBio        String?
+  shortBio        String? // rich HTML
   qualifications  String[]
   specialisations String[]
   languages       String[]
@@ -168,6 +168,8 @@ model SiteSettings {
   ogImage              String?
   crisisNotice         String?
   cookieConsentEnabled Boolean  @default(false)
+  themePreset          String   @default("plum-gold") // key into lib/theme-presets.ts THEME_PRESETS
+  fontPair             String   @default("fraunces-jakarta") // key into lib/theme-presets.ts FONT_PAIRS
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 }

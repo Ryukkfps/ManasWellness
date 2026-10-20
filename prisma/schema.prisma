@@ -168,6 +168,8 @@ model SiteSettings {
   ogImage              String?
   crisisNotice         String?
   cookieConsentEnabled Boolean  @default(false)
+  themePreset          String   @default("plum-gold") // key into lib/theme-presets.ts THEME_PRESETS
+  fontPair             String   @default("fraunces-jakarta") // key into lib/theme-presets.ts FONT_PAIRS
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 }

@@ -13045,6 +13045,8 @@ export namespace Prisma {
     ogImage: string | null
     crisisNotice: string | null
     cookieConsentEnabled: boolean | null
+    themePreset: string | null
+    fontPair: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -13057,6 +13059,8 @@ export namespace Prisma {
     ogImage: string | null
     crisisNotice: string | null
     cookieConsentEnabled: boolean | null
+    themePreset: string | null
+    fontPair: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -13069,6 +13073,8 @@ export namespace Prisma {
     ogImage: number
     crisisNotice: number
     cookieConsentEnabled: number
+    themePreset: number
+    fontPair: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -13083,6 +13089,8 @@ export namespace Prisma {
     ogImage?: true
     crisisNotice?: true
     cookieConsentEnabled?: true
+    themePreset?: true
+    fontPair?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -13095,6 +13103,8 @@ export namespace Prisma {
     ogImage?: true
     crisisNotice?: true
     cookieConsentEnabled?: true
+    themePreset?: true
+    fontPair?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -13107,6 +13117,8 @@ export namespace Prisma {
     ogImage?: true
     crisisNotice?: true
     cookieConsentEnabled?: true
+    themePreset?: true
+    fontPair?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -13192,6 +13204,8 @@ export namespace Prisma {
     ogImage: string | null
     crisisNotice: string | null
     cookieConsentEnabled: boolean
+    themePreset: string
+    fontPair: string
     createdAt: Date
     updatedAt: Date
     _count: SiteSettingsCountAggregateOutputType | null
@@ -13221,6 +13235,8 @@ export namespace Prisma {
     ogImage?: boolean
     crisisNotice?: boolean
     cookieConsentEnabled?: boolean
+    themePreset?: boolean
+    fontPair?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["siteSettings"]>
@@ -13234,6 +13250,8 @@ export namespace Prisma {
     ogImage?: boolean
     crisisNotice?: boolean
     cookieConsentEnabled?: boolean
+    themePreset?: boolean
+    fontPair?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -13250,6 +13268,8 @@ export namespace Prisma {
       ogImage: string | null
       crisisNotice: string | null
       cookieConsentEnabled: boolean
+      themePreset: string
+      fontPair: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["siteSettings"]>
@@ -13651,6 +13671,8 @@ export namespace Prisma {
     readonly ogImage: FieldRef<"SiteSettings", 'String'>
     readonly crisisNotice: FieldRef<"SiteSettings", 'String'>
     readonly cookieConsentEnabled: FieldRef<"SiteSettings", 'Boolean'>
+    readonly themePreset: FieldRef<"SiteSettings", 'String'>
+    readonly fontPair: FieldRef<"SiteSettings", 'String'>
     readonly createdAt: FieldRef<"SiteSettings", 'DateTime'>
     readonly updatedAt: FieldRef<"SiteSettings", 'DateTime'>
   }
@@ -20956,6 +20978,8 @@ export namespace Prisma {
     ogImage: 'ogImage',
     crisisNotice: 'crisisNotice',
     cookieConsentEnabled: 'cookieConsentEnabled',
+    themePreset: 'themePreset',
+    fontPair: 'fontPair',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -22020,6 +22044,8 @@ export namespace Prisma {
     ogImage?: StringNullableFilter<"SiteSettings"> | string | null
     crisisNotice?: StringNullableFilter<"SiteSettings"> | string | null
     cookieConsentEnabled?: BoolFilter<"SiteSettings"> | boolean
+    themePreset?: StringFilter<"SiteSettings"> | string
+    fontPair?: StringFilter<"SiteSettings"> | string
     createdAt?: DateTimeFilter<"SiteSettings"> | Date | string
     updatedAt?: DateTimeFilter<"SiteSettings"> | Date | string
   }
@@ -22032,6 +22058,8 @@ export namespace Prisma {
     ogImage?: SortOrder
     crisisNotice?: SortOrder
     cookieConsentEnabled?: SortOrder
+    themePreset?: SortOrder
+    fontPair?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22047,6 +22075,8 @@ export namespace Prisma {
     ogImage?: StringNullableFilter<"SiteSettings"> | string | null
     crisisNotice?: StringNullableFilter<"SiteSettings"> | string | null
     cookieConsentEnabled?: BoolFilter<"SiteSettings"> | boolean
+    themePreset?: StringFilter<"SiteSettings"> | string
+    fontPair?: StringFilter<"SiteSettings"> | string
     createdAt?: DateTimeFilter<"SiteSettings"> | Date | string
     updatedAt?: DateTimeFilter<"SiteSettings"> | Date | string
   }, "id">
@@ -22059,6 +22089,8 @@ export namespace Prisma {
     ogImage?: SortOrder
     crisisNotice?: SortOrder
     cookieConsentEnabled?: SortOrder
+    themePreset?: SortOrder
+    fontPair?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: SiteSettingsCountOrderByAggregateInput
@@ -22077,6 +22109,8 @@ export namespace Prisma {
     ogImage?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
     crisisNotice?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
     cookieConsentEnabled?: BoolWithAggregatesFilter<"SiteSettings"> | boolean
+    themePreset?: StringWithAggregatesFilter<"SiteSettings"> | string
+    fontPair?: StringWithAggregatesFilter<"SiteSettings"> | string
     createdAt?: DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
   }
@@ -23531,6 +23565,8 @@ export namespace Prisma {
     ogImage?: string | null
     crisisNotice?: string | null
     cookieConsentEnabled?: boolean
+    themePreset?: string
+    fontPair?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23543,6 +23579,8 @@ export namespace Prisma {
     ogImage?: string | null
     crisisNotice?: string | null
     cookieConsentEnabled?: boolean
+    themePreset?: string
+    fontPair?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23554,6 +23592,8 @@ export namespace Prisma {
     ogImage?: NullableStringFieldUpdateOperationsInput | string | null
     crisisNotice?: NullableStringFieldUpdateOperationsInput | string | null
     cookieConsentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    themePreset?: StringFieldUpdateOperationsInput | string
+    fontPair?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23565,6 +23605,8 @@ export namespace Prisma {
     ogImage?: NullableStringFieldUpdateOperationsInput | string | null
     crisisNotice?: NullableStringFieldUpdateOperationsInput | string | null
     cookieConsentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    themePreset?: StringFieldUpdateOperationsInput | string
+    fontPair?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23577,6 +23619,8 @@ export namespace Prisma {
     ogImage?: string | null
     crisisNotice?: string | null
     cookieConsentEnabled?: boolean
+    themePreset?: string
+    fontPair?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23588,6 +23632,8 @@ export namespace Prisma {
     ogImage?: NullableStringFieldUpdateOperationsInput | string | null
     crisisNotice?: NullableStringFieldUpdateOperationsInput | string | null
     cookieConsentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    themePreset?: StringFieldUpdateOperationsInput | string
+    fontPair?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23599,6 +23645,8 @@ export namespace Prisma {
     ogImage?: NullableStringFieldUpdateOperationsInput | string | null
     crisisNotice?: NullableStringFieldUpdateOperationsInput | string | null
     cookieConsentEnabled?: BoolFieldUpdateOperationsInput | boolean
+    themePreset?: StringFieldUpdateOperationsInput | string
+    fontPair?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -24783,6 +24831,8 @@ export namespace Prisma {
     ogImage?: SortOrder
     crisisNotice?: SortOrder
     cookieConsentEnabled?: SortOrder
+    themePreset?: SortOrder
+    fontPair?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24795,6 +24845,8 @@ export namespace Prisma {
     ogImage?: SortOrder
     crisisNotice?: SortOrder
     cookieConsentEnabled?: SortOrder
+    themePreset?: SortOrder
+    fontPair?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24807,6 +24859,8 @@ export namespace Prisma {
     ogImage?: SortOrder
     crisisNotice?: SortOrder
     cookieConsentEnabled?: SortOrder
+    themePreset?: SortOrder
+    fontPair?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

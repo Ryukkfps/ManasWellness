@@ -76,7 +76,7 @@ export default async function Home() {
 
       {/* Therapist intro */}
       {therapist && (
-        <Section tone="sand">
+        <Section tone="sage">
           <Container className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="rounded-3xl overflow-hidden aspect-[4/5]">
               {therapist.photo && (
@@ -173,7 +173,7 @@ export default async function Home() {
       </Section>
 
       {/* FAQ */}
-      <Section tone="sand">
+      <Section tone="sage">
         <Container className="max-w-3xl">
           <div className="text-center mb-12">
             <Eyebrow>Good to know</Eyebrow>
@@ -197,7 +197,7 @@ export default async function Home() {
       <ContentSections />
 
       {/* Final CTA */}
-      <Section tone="cream">
+      <Section tone="sage">
         <Container className="text-center max-w-2xl">
           <H2>Ready to take the first step?</H2>
           <p className="text-ink-muted mt-4 mb-8 leading-relaxed">

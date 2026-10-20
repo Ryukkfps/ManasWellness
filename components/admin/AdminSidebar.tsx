@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Menu, X, LayoutDashboard, Image as ImageIcon, Briefcase, Mail, Star,
-  Phone, FileText, Info, UserCircle, CalendarHeart, ClipboardList, BookOpen,
+  Phone, FileText, Info, UserCircle, CalendarHeart, ClipboardList, BookOpen, Palette,
 } from 'lucide-react';
 import SignOutButton from '@/components/admin/SignOutButton';
 
@@ -27,6 +27,7 @@ const menuItems = [
   { name: 'About Us', icon: Info, href: '/admin/about' },
   { name: 'Contact Info', icon: Phone, href: '/admin/contact-info' },
   { name: 'Legal Pages', icon: FileText, href: '/admin/legal-pages' },
+  { name: 'Appearance', icon: Palette, href: '/admin/appearance' },
 ];
 
 export default function AdminSidebar() {

@@ -36,7 +36,7 @@ export default async function AboutPage() {
 
       {/* About Manaswellness (org-level story), image beside */}
       {sections.map((section, index) => (
-        <Section key={section.id} tone={index % 2 === 0 ? 'cream' : 'sand'}>
+        <Section key={section.id} tone={index % 2 === 0 ? 'cream' : 'sage'}>
           <Container
             className={`flex flex-col ${
               section.layout === 'MIRRORED' ? 'md:flex-row-reverse' : 'md:flex-row'
@@ -60,7 +60,7 @@ export default async function AboutPage() {
 
       {/* Meet Your Therapist — qualifications, experience, approach */}
       {therapist && (
-        <Section tone="sand">
+        <Section tone="sage">
           <Container>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <Eyebrow>Your Therapist</Eyebrow>
