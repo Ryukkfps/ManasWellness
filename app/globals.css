@@ -85,7 +85,11 @@ html {
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 1.4s ease-out forwards;
+  /* `both` (not just `forwards`) applies the 0% keyframe before the
+     animation starts too — without it, content paints at full opacity for
+     one frame, then snaps to hidden and animates back in, reading as a
+     double render. */
+  animation: fadeInUp 1.4s ease-out both;
 }
 
 .delay-100 {

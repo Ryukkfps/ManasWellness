@@ -58,18 +58,18 @@ export default function HeroCarousel({ initialSlides }: { initialSlides: Slide[]
           />
 
           <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-cream px-6 md:px-16 max-w-2xl">
-            <span className="text-sm tracking-[0.12em] font-semibold uppercase mb-4 text-sand animate-fadeInUp">
+            <span className="text-sm tracking-[0.12em] font-semibold uppercase mb-4 text-sand">
               {slide.subtitle}
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl font-medium leading-tight mb-6 animate-fadeInUp delay-100">
+            <h1 className="font-serif text-4xl md:text-6xl font-medium leading-tight mb-6">
               {slide.title}
             </h1>
-            <p className="max-w-xl text-base md:text-lg text-sand/90 mb-10 leading-relaxed animate-fadeInUp delay-200">
+            <p className="max-w-xl text-base md:text-lg text-sand/90 mb-10 leading-relaxed">
               {slide.description}
             </p>
             <Link
               href={slide.ctaLink || '/services'}
-              className="inline-flex items-center rounded-full bg-cream text-ink px-7 py-3.5 text-sm font-semibold hover:bg-white transition-colors animate-fadeInUp delay-300"
+              className="inline-flex items-center rounded-full bg-cream text-ink px-7 py-3.5 text-sm font-semibold hover:bg-white transition-colors"
             >
               {slide.ctaText}
             </Link>
