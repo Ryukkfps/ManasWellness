@@ -26,7 +26,7 @@ export default function OpengraphImage() {
           />
           <path d="M14 25V10" stroke="#5B3570" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
-        <div style={{ fontSize: 56, color: "#332B22", fontWeight: 500 }}>Manaswellness</div>
+        <div style={{ fontSize: 56, color: "#332B22", fontWeight: 500 }}>Manas Wellness</div>
         <div style={{ fontSize: 24, color: "#6B6054" }}>A gentle space to feel heard</div>
       </div>
     ),

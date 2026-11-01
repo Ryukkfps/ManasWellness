@@ -59,7 +59,7 @@ export default function AdminSidebar() {
     <>
       {/* Mobile top bar */}
       <div className="md:hidden flex items-center justify-between bg-sage-800 text-cream px-4 py-3">
-        <span className="font-serif tracking-wide">Manaswellness Admin</span>
+        <span className="font-serif tracking-wide">Manas Wellness Admin</span>
         <button
           type="button"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -82,7 +82,7 @@ export default function AdminSidebar() {
       <aside className="w-64 bg-sage-800 text-cream hidden md:flex flex-col shrink-0">
         <div className="p-6 border-b border-white/10">
           <h1 className="text-xl font-serif tracking-wide">Admin Panel</h1>
-          <p className="text-[10px] text-cream/50 tracking-widest uppercase mt-1">Manaswellness</p>
+          <p className="text-[10px] text-cream/50 tracking-widest uppercase mt-1">Manas Wellness</p>
         </div>
         <Nav />
         <div className="p-4 border-t border-white/10">

@@ -72,7 +72,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 md:px-8 py-6 border-t border-line flex flex-col items-center gap-3">
         <p className="text-xs text-ink-muted uppercase tracking-[0.15em] text-center">
-          © {new Date().getFullYear()} Manaswellness. All Rights Reserved.
+          © {new Date().getFullYear()} Manas Wellness. All Rights Reserved.
         </p>
         {legalPages.length > 0 && (
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">

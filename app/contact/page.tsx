@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Manaswellness to ask questions or start your first session.",
+  description: "Get in touch with Manas Wellness to ask questions or start your first session.",
 };
 
 export default function ContactPage() {

@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Testimonials",
-  description: "Read what clients say about their experience with Manaswellness.",
+  description: "Read what clients say about their experience with Manas Wellness.",
 };
 
 export default function ReviewsPage() {

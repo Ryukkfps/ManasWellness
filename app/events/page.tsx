@@ -11,7 +11,7 @@ export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Group wellness events and workshops hosted by Manaswellness.",
+  description: "Group wellness events and workshops hosted by Manas Wellness.",
 };
 
 function EventCard({ event }: { event: any }) {

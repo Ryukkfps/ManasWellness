@@ -28,7 +28,7 @@ export default async function AdminDashboard() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
           <h1 className="font-serif text-2xl text-ink">Dashboard</h1>
-          <p className="text-sm text-ink-muted mt-1">Manaswellness management panel</p>
+          <p className="text-sm text-ink-muted mt-1">Manas Wellness management panel</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">

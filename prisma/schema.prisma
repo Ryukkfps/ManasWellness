@@ -163,7 +163,7 @@ model TherapistProfile {
 // Singleton site-wide settings — makes SEO fields CMS-editable.
 model SiteSettings {
   id                   String   @id @default(auto()) @map("_id") @db.ObjectId
-  siteName             String   @default("Manaswellness")
+  siteName             String   @default("Manas Wellness")
   tagline              String?
   metaDescription      String?
   ogImage              String?

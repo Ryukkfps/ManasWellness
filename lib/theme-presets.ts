@@ -29,7 +29,7 @@ export const THEME_PRESETS: ThemePreset[] = [
   {
     key: "plum-gold",
     label: "Plum & Gold",
-    description: "Default — matches the Manaswellness logo.",
+    description: "Default — matches the Manas Wellness logo.",
     tokens: {
       sage700: "#5b3570",
       sage800: "#2f1240",

@@ -11,7 +11,7 @@ export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Articles and reflections on mental wellness from Manaswellness.",
+  description: "Articles and reflections on mental wellness from Manas Wellness.",
 };
 
 export default async function BlogPage() {

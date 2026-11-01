@@ -9,7 +9,7 @@ export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Manaswellness's approach to individual and couples counselling.",
+  description: "Learn about Manas Wellness's approach to individual and couples counselling.",
 };
 
 export default async function AboutPage() {
@@ -30,11 +30,11 @@ export default async function AboutPage() {
       <Section tone="sand" className="py-16 md:py-20">
         <Container className="text-center max-w-2xl">
           <Eyebrow>About</Eyebrow>
-          <H1 className="mt-3">About Manaswellness</H1>
+          <H1 className="mt-3">About Manas Wellness</H1>
         </Container>
       </Section>
 
-      {/* About Manaswellness (org-level story), image beside */}
+      {/* About Manas Wellness (org-level story), image beside */}
       {sections.map((section, index) => (
         <Section key={section.id} tone={index % 2 === 0 ? 'cream' : 'sage'}>
           <Container

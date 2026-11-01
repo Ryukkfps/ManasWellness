@@ -11,7 +11,7 @@ export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Highlights from Manaswellness community wellness events.",
+  description: "Highlights from Manas Wellness community wellness events.",
 };
 
 export default async function GalleryPage() {

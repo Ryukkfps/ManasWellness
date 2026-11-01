@@ -8,11 +8,11 @@ import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: {
-    default: "Manaswellness",
-    template: "%s | Manaswellness",
+    default: "Manas Wellness",
+    template: "%s | Manas Wellness",
   },
   description:
-    "Manaswellness offers individual and couples counselling, group wellness events, and mental health resources in a calm, confidential space.",
+    "Manas Wellness offers individual and couples counselling, group wellness events, and mental health resources in a calm, confidential space.",
 };
 
 export default async function RootLayout({

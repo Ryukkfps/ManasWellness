@@ -73,10 +73,10 @@ async function main() {
   // --- Site settings (singleton) ---
   await prisma.siteSettings.create({
     data: {
-      siteName: "Manaswellness",
+      siteName: "Manas Wellness",
       tagline: "A gentle space to feel heard",
       metaDescription:
-        "Manaswellness offers individual and couples counselling, group wellness events, and mental health resources. Placeholder description — to be finalised with the client.",
+        "Manas Wellness offers individual and couples counselling, group wellness events, and mental health resources. Placeholder description — to be finalised with the client.",
       crisisNotice:
         "If you are in crisis or need immediate support, please reach out to Tele-MANAS (14416) or KIRAN (1800-599-0019). Placeholder helplines — client must confirm before launch.",
       cookieConsentEnabled: false,
@@ -100,7 +100,7 @@ async function main() {
       title: "A gentle space to feel heard",
       subtitle: "Individual & Couples Counselling",
       description:
-        "Manaswellness offers a calm, confidential space to work through anxiety, stress, relationships, and life's transitions — at your own pace. Placeholder copy.",
+        "Manas Wellness offers a calm, confidential space to work through anxiety, stress, relationships, and life's transitions — at your own pace. Placeholder copy.",
       backgroundImage:
         "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1600&q=80",
       ctaText: "Explore Services",
@@ -228,15 +228,15 @@ async function main() {
     await prisma.service.create({ data: service });
   }
 
-  // --- About sections (org-level "About Manaswellness" story — kept
+  // --- About sections (org-level "About Manas Wellness" story — kept
   // separate from the therapist's personal bio, which lives on
   // TherapistProfile and renders in its own "Meet Your Therapist" section) ---
   await prisma.aboutSection.create({
     data: {
-      title: "About Manaswellness",
+      title: "About Manas Wellness",
       subtitle: "OUR STORY",
       content:
-        "<p>Placeholder content introducing Manaswellness as a practice: what it offers, who it serves, and why it exists.</p><p>This content will be replaced with the client's actual practice description.</p>",
+        "<p>Placeholder content introducing Manas Wellness as a practice: what it offers, who it serves, and why it exists.</p><p>This content will be replaced with the client's actual practice description.</p>",
       image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1000&q=80",
       layout: "NORMAL",
       order: 1,

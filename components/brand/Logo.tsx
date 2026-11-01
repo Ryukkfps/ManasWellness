@@ -9,14 +9,14 @@ export function Logo({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <Image
         src="/brand/logo.svg"
-        alt="Manaswellness"
+        alt="Manas Wellness"
         width={500}
         height={500}
         priority
         className="h-16 w-16 rounded-lg object-cover shrink-0"
       />
       <span className="font-serif text-xl font-medium text-ink tracking-wide">
-        Manaswellness
+        Manas Wellness
       </span>
     </span>
   );
